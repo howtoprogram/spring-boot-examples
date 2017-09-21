@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-	@JmsListener(destination = "hello.queue")
+	@JmsListener(destination = "${hello.activemq.queue}")
 	public void receiveQueue(String text) {
 		System.out.println(text);
 	}

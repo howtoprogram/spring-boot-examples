@@ -45,7 +45,7 @@ public class HelloActiveMQTest {
 	public void sendSimpleMessage() throws InterruptedException, JMSException {
 		this.producer.send("Hello ActiveMQ");
 		Thread.sleep(1000L);
-		assertThat(this.outputCapture.toString().contains("Test message")).isTrue();
+		assertThat(this.outputCapture.toString().contains("Hello ActiveMQ")).isTrue();
 	}
 
 }

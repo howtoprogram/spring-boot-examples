@@ -16,10 +16,8 @@
 
 package com.howtoprogram.activemq;
 
-import javax.jms.Queue;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Component;
 
@@ -29,11 +27,11 @@ public class Producer {
 	@Autowired
 	private JmsMessagingTemplate jmsMessagingTemplate;
 
-	@Autowired
-	private Queue queue;
+	@Value("${hello.activemq.queue}")
+	String queue;
 
 	public void send(String msg) {
-		this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
+		this.jmsMessagingTemplate.convertAndSend(queue, msg);
 	}
 
 }
